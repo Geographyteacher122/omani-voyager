@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
+<head><script>/* سندباد عُمان الصغير: تسجيل إنهاء اللعبة لمرفأ السفينة */function __sbDone(){var r='';try{r=(location.pathname.split('/')[1]||'').toLowerCase().replace(/\.+$/,'');var c=null;try{c=JSON.parse(localStorage.getItem('sindbad-current')||'null')}catch(e){}var w=(c&&c.name)||'';var d={};try{d=JSON.parse(localStorage.getItem('sindbad-done')||'{}')||{}}catch(e){}(d[w]=d[w]||{})[r]=Date.now();localStorage.setItem('sindbad-done',JSON.stringify(d))}catch(e){}try{if(window.parent&&window.parent!==window)window.parent.postMessage({sindbadDone:r},'*')}catch(e){}}</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <title>رحّالة عُمان</title>
@@ -632,7 +632,7 @@ $('newBtn').onclick=()=>{startGame(true)};
 function introState(){const r=S.i>0&&S.i<6;$('startBtn').textContent=r?'تابع المغامرة':'ابدأ المغامرة';$('newBtn').classList.toggle('hidden',!r)}
 $('muteBtn').onclick=()=>{muted=!muted;$('sndw').style.display=muted?'none':''};
 /* ---------- end + cert ---------- */
-function showEnd(){
+function showEnd(){__sbDone();
  A.locked=true;const e=$('end');e.classList.remove('hidden');sfx.fan();setTimeout(()=>burst(innerWidth/2,innerHeight/3,150),300);
  const sc=ST.map((s,k)=>({s,ok:ACT.filter(a=>a.st===k).every(a=>S.pts[ACT.indexOf(a)]>0)}));const done=S.pts.filter(v=>v>0).length;
  $('endCard').innerHTML=`<h2>مبارك! لقد أكملت رحلة رحّالة عُمان بنجاح</h2>
